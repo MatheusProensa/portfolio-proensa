@@ -245,7 +245,7 @@ export default function App() {
 
             <div className="about-copy reveal reveal-delay-2">
               <p>
-                Sou designer gráfico e estudante de Sistemas de Informação, com
+                Sou Designer Gráfico e estudante de Sistemas de Informação, com
                 foco em identidade visual, interfaces digitais e desenvolvimento
                 front-end.
               </p>
