@@ -164,11 +164,12 @@ main {
 }
 
 .hero-role {
-  font-size: 34px;
+  font-size: clamp(24px, 3vw, 30px);
   font-weight: 700;
   margin-top: 34px;
   margin-bottom: 0;
   text-align: center;
+  line-height: 1.2;
 }
 
 .hero-actions {
