@@ -17,10 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-}
-
 .portfolio {
   position: relative;
   min-height: 100vh;
