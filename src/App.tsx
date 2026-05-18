@@ -226,18 +226,11 @@ export default function App() {
             </div>
           </div>
 
-          <div className="hero-content disable-network reveal show">
-
-  <div className="hero-visual-mobile">
-    <div className="brand-orbit">
-      <img src={logo} alt="Logo Proensa" />
-    </div>
+         <div className="hero-visual disable-network reveal show reveal-delay-1">
+  <div className="brand-orbit">
+    <img src={logo} alt="Logo Proensa" />
   </div>
-
-  <h1>
-    Matheus
-    <img src={simbolo} alt="Proensa" className="hero-wordmark" />
-  </h1>
+</div>
         </section>
 
         <section id="sobre" className="section">
