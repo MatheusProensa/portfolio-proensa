@@ -26,14 +26,16 @@ function NetworkBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    const canvasElement = canvasRef.current;
+    if (!canvasElement) return;
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    const context = canvasElement.getContext("2d");
+    if (!context) return;
+
+    const canvas = canvasElement;
+    const ctx = context;
 
     let animationFrame: number;
-
     let width = window.innerWidth;
     let height = window.innerHeight;
 
@@ -43,12 +45,12 @@ function NetworkBackground() {
       active: true,
     };
 
-    const particles = Array.from({ length: 75 }, () => ({
+    const particles = Array.from({ length: 78 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       vx: (Math.random() - 0.5) * 0.28,
       vy: (Math.random() - 0.5) * 0.28,
-      size: Math.random() * 1.8 + 0.8,
+      size: Math.random() * 1.7 + 0.8,
     }));
 
     function resizeCanvas() {
@@ -60,21 +62,7 @@ function NetworkBackground() {
     }
 
     function handleMouseMove(event: MouseEvent) {
-      const target = event.target as HTMLElement;
-
-      if (
-        target.closest(".disable-network") ||
-        target.closest("button") ||
-        target.closest("a") ||
-        target.closest("input") ||
-        target.closest("textarea")
-      ) {
-        mouse.active = false;
-        return;
-      }
-
       mouse.active = true;
-
       mouse.x = event.clientX;
       mouse.y = event.clientY;
     }
@@ -92,12 +80,9 @@ function NetworkBackground() {
         if (mouse.active) {
           const dxMouse = particle.x - mouse.x;
           const dyMouse = particle.y - mouse.y;
+          const mouseDistance = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
 
-          const mouseDistance = Math.sqrt(
-            dxMouse * dxMouse + dyMouse * dyMouse
-          );
-
-          if (mouseDistance < 150) {
+          if (mouseDistance < 155) {
             particle.x += dxMouse * 0.003;
             particle.y += dyMouse * 0.003;
           }
@@ -105,7 +90,7 @@ function NetworkBackground() {
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(56,189,248,0.45)";
+        ctx.fillStyle = "rgba(56,189,248,0.46)";
         ctx.fill();
       });
 
@@ -113,19 +98,15 @@ function NetworkBackground() {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 130) {
+          if (distance < 132) {
             ctx.beginPath();
-
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-
             ctx.strokeStyle = `rgba(56,189,248,${
-              0.12 * (1 - distance / 130)
+              0.13 * (1 - distance / 132)
             })`;
-
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -143,7 +124,6 @@ function NetworkBackground() {
 
     return () => {
       cancelAnimationFrame(animationFrame);
-
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
     };
@@ -152,7 +132,32 @@ function NetworkBackground() {
   return <canvas ref={canvasRef} className="network-canvas" />;
 }
 
+function useRevealAnimation() {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      {
+        threshold: 0.14,
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+}
+
 export default function App() {
+  useRevealAnimation();
+
   return (
     <div className="portfolio">
       <NetworkBackground />
@@ -160,7 +165,6 @@ export default function App() {
       <div className="glow glow-one"></div>
       <div className="glow glow-two"></div>
 
-      {/* NAVBAR */}
       <header className="navbar disable-network">
         <a href="#home" className="brand">
           <img src={simbolo} alt="Proensa" />
@@ -176,28 +180,21 @@ export default function App() {
       </header>
 
       <main>
-        {/* HERO */}
         <section id="home" className="hero">
-          <div className="hero-content disable-network">
-            <span className="hero-label">
-              Creative Developer / Branding Studio
-            </span>
-
+          <div className="hero-content disable-network reveal show">
             <h1>
               Matheus
-              <strong>Proensa</strong>
+              <img src={simbolo} alt="Proensa" className="hero-wordmark" />
             </h1>
 
-            <p className="hero-role">
-              Designer & Front-end Developer
-            </p>
+            <p className="hero-role">Designer & Front-end Developer</p>
 
             <div className="hero-actions">
-              <a href="#design" className="btn btn-light">
+              <a href="#design" className="btn btn-primary">
                 Ver projetos <FaArrowRight />
               </a>
 
-              <a href="#contato" className="btn btn-outline">
+              <a href="#contato" className="btn btn-secondary">
                 Contato
               </a>
             </div>
@@ -229,32 +226,28 @@ export default function App() {
             </div>
           </div>
 
-          <div className="hero-visual disable-network">
+          <div className="hero-visual disable-network reveal show reveal-delay-1">
             <div className="brand-orbit">
               <img src={logo} alt="Logo Proensa" />
             </div>
           </div>
         </section>
 
-        {/* SOBRE */}
         <section id="sobre" className="section">
-          <div className="section-center">
+          <div className="section-center reveal">
             <h2 className="section-title">Sobre mim</h2>
           </div>
 
           <div className="about-layout disable-network">
-            <div className="about-photo">
-              <img
-                src={fotoPerfil}
-                alt="Foto de perfil"
-              />
+            <div className="about-photo reveal reveal-delay-1">
+              <img src={fotoPerfil} alt="Foto de perfil" />
             </div>
 
-            <div className="about-copy">
+            <div className="about-copy reveal reveal-delay-2">
               <p>
-                Sou designer gráfico e estudante de Sistemas de Informação,
-                com foco em identidade visual, interfaces digitais e
-                desenvolvimento front-end.
+                Sou designer gráfico e estudante de Sistemas de Informação, com
+                foco em identidade visual, interfaces digitais e desenvolvimento
+                front-end.
               </p>
 
               <p>
@@ -265,23 +258,20 @@ export default function App() {
           </div>
         </section>
 
-        {/* ÁREAS */}
         <section id="skills" className="section">
-          <div className="section-center">
+          <div className="section-center reveal">
             <h2 className="section-title">Áreas de atuação</h2>
           </div>
 
           <div className="skills-grid">
-            <article className="skill-card disable-network">
+            <article className="skill-card disable-network reveal reveal-delay-1">
               <div className="skill-icon">
                 <FaPalette />
               </div>
 
               <h3>Design</h3>
 
-              <p>
-                Criação de marcas, peças visuais e materiais digitais.
-              </p>
+              <p>Criação de marcas, peças visuais e materiais digitais.</p>
 
               <div className="tags">
                 <span>Photoshop</span>
@@ -291,16 +281,14 @@ export default function App() {
               </div>
             </article>
 
-            <article className="skill-card disable-network">
+            <article className="skill-card disable-network reveal reveal-delay-2">
               <div className="skill-icon">
                 <FaReact />
               </div>
 
               <h3>Front-end</h3>
 
-              <p>
-                Desenvolvimento de interfaces modernas e responsivas.
-              </p>
+              <p>Desenvolvimento de interfaces modernas e responsivas.</p>
 
               <div className="tags">
                 <span>React</span>
@@ -312,29 +300,23 @@ export default function App() {
           </div>
         </section>
 
-        {/* DESIGN */}
         <section id="design" className="section">
-          <div className="section-center">
+          <div className="section-center reveal">
             <h2 className="section-title">Projetos de Design</h2>
           </div>
 
           <div className="design-projects">
-            <article className="design-card disable-network">
+            <article className="design-card disable-network reveal reveal-delay-1">
               <div
                 className="design-image"
-                style={{
-                  backgroundImage: `url(${capaProensa})`,
-                }}
+                style={{ backgroundImage: `url(${capaProensa})` }}
               ></div>
 
               <div className="design-info">
                 <span>Identidade Visual</span>
-
                 <h3>Proensa Brand</h3>
-
                 <p>
-                  Marca autoral com proposta minimalista,
-                  tecnológica e moderna.
+                  Marca autoral com proposta minimalista, tecnológica e moderna.
                 </p>
 
                 <a
@@ -348,22 +330,16 @@ export default function App() {
               </div>
             </article>
 
-            <article className="design-card disable-network">
+            <article className="design-card disable-network reveal reveal-delay-2">
               <div
                 className="design-image"
-                style={{
-                  backgroundImage: `url(${capaPontoGrao})`,
-                }}
+                style={{ backgroundImage: `url(${capaPontoGrao})` }}
               ></div>
 
               <div className="design-info">
                 <span>Branding</span>
-
                 <h3>Ponto Grão</h3>
-
-                <p>
-                  Identidade visual para cafeteria contemporânea.
-                </p>
+                <p>Identidade visual para cafeteria contemporânea.</p>
 
                 <a
                   href="https://www.behance.net/gallery/246372203/Identidade-Visual-Ponto-Grao"
@@ -376,22 +352,16 @@ export default function App() {
               </div>
             </article>
 
-            <article className="design-card disable-network">
+            <article className="design-card disable-network reveal reveal-delay-3">
               <div
                 className="design-image"
-                style={{
-                  backgroundImage: `url(${capaPakoBella})`,
-                }}
+                style={{ backgroundImage: `url(${capaPakoBella})` }}
               ></div>
 
               <div className="design-info">
                 <span>Pet Branding</span>
-
                 <h3>Pako & Bella</h3>
-
-                <p>
-                  Identidade pet emocional, leve e moderna.
-                </p>
+                <p>Identidade pet emocional, leve e moderna.</p>
 
                 <a
                   href="https://www.behance.net/gallery/249385069/Identidade-Visual-Pet-Shop-Pako-Bella"
@@ -406,21 +376,20 @@ export default function App() {
           </div>
         </section>
 
-        {/* FRONT-END */}
         <section id="frontend" className="section">
-          <div className="section-center">
+          <div className="section-center reveal">
             <h2 className="section-title">Projetos Front-end</h2>
           </div>
 
           <div className="frontend-grid">
-            <article className="frontend-card disable-network">
+            <article className="frontend-card disable-network reveal reveal-delay-1">
               <span>React</span>
 
               <h3>Portfólio Proensa</h3>
 
               <p>
-                Portfólio pessoal desenvolvido com React,
-                TypeScript e direção visual própria.
+                Portfólio pessoal desenvolvido com React, TypeScript e direção
+                visual própria.
               </p>
 
               <a
@@ -433,14 +402,14 @@ export default function App() {
               </a>
             </article>
 
-            <article className="frontend-card disable-network">
+            <article className="frontend-card disable-network reveal reveal-delay-2">
               <span>Em desenvolvimento</span>
 
               <h3>Novos projetos em breve</h3>
 
               <p>
-                Espaço reservado para aplicações web,
-                sistemas e estudos front-end.
+                Espaço reservado para aplicações web, sistemas e estudos
+                front-end.
               </p>
 
               <a
@@ -455,19 +424,18 @@ export default function App() {
           </div>
         </section>
 
-        {/* CONTATO */}
         <section id="contato" className="section">
-          <div className="section-center">
+          <div className="section-center reveal">
             <h2 className="section-title">Contato</h2>
           </div>
 
-          <div className="contact-card disable-network">
+          <div className="contact-card disable-network reveal reveal-delay-1">
             <div className="contact-left">
-              <h3>Vamos conversar?</h3>
+              <h3>Vamos criar algo único?</h3>
 
               <p>
-                Entre em contato para projetos,
-                oportunidades ou troca de ideias.
+                Branding, interfaces modernas e experiências digitais com foco
+                em estética, identidade e presença visual.
               </p>
 
               <div className="contact-info">
@@ -494,13 +462,11 @@ export default function App() {
 
             <form className="contact-form">
               <input placeholder="Seu nome" />
-
               <input placeholder="Seu e-mail" />
+              <textarea placeholder="Me conte sobre sua ideia ou projeto"></textarea>
 
-              <textarea placeholder="Mensagem"></textarea>
-
-              <button type="button">
-                Enviar mensagem <FaArrowRight />
+              <button type="button" className="btn-form">
+                Iniciar conversa <FaArrowRight />
               </button>
             </form>
           </div>
