@@ -393,7 +393,7 @@ export default function App() {
               </p>
 
               <a
-                href="https://github.com/MatheusProensa"
+                href="https://github.com/MatheusProensa/portfolio-proensa"
                 target="_blank"
                 rel="noreferrer"
                 className="project-button"
