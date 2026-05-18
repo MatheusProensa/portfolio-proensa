@@ -157,10 +157,19 @@ main {
 .hero-wordmark {
   width: 540px;
   max-width: 100%;
+
   margin-top: -12px;
+
   display: block;
+
   object-fit: contain;
-  filter: drop-shadow(0 0 34px rgba(37,99,235,0.25));
+
+  filter:
+    drop-shadow(0 0 18px rgba(37,99,235,0.18));
+
+  position: relative;
+
+  animation: logoGlow 5s ease-in-out infinite;
 }
 
 .hero-role {
@@ -170,6 +179,8 @@ main {
   margin-bottom: 0;
   text-align: center;
   line-height: 1.2;
+
+  animation: roleFloat 4s ease-in-out infinite;
 }
 
 .hero-actions {
@@ -682,5 +693,39 @@ main {
   .project-button,
   .btn-form {
     width: 100%;
+  }
+}
+
+@keyframes roleFloat {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.92;
+  }
+
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 0.92;
+  }
+}
+
+@keyframes logoGlow {
+  0% {
+    filter:
+      drop-shadow(0 0 18px rgba(37,99,235,0.18));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 34px rgba(56,189,248,0.42));
+  }
+
+  100% {
+    filter:
+      drop-shadow(0 0 18px rgba(37,99,235,0.18));
   }
 }
