@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import simbolo from "./assets/p-simbolo.png";
 import logo from "./assets/logo-proensa.png";
@@ -158,6 +158,46 @@ function useRevealAnimation() {
 export default function App() {
   useRevealAnimation();
 
+  const [activeSection, setActiveSection] = useState("home");
+  useEffect(() => {
+  const sections = [
+    "home",
+    "sobre",
+    "skills",
+    "design",
+    "frontend",
+    "contato",
+  ];
+
+  function handleScroll() {
+    const scrollPosition = window.scrollY + 160;
+
+    sections.forEach((sectionId) => {
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+
+        if (
+          scrollPosition >= top &&
+          scrollPosition < top + height
+        ) {
+          setActiveSection(sectionId);
+        }
+      }
+    });
+  }
+
+  handleScroll();
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
 
   return (
     <div className="portfolio">
@@ -172,12 +212,41 @@ export default function App() {
         </a>
 
         <nav className="nav">
-          <a href="#sobre">Sobre</a>
-          <a href="#skills">Áreas</a>
-          <a href="#design">Design</a>
-          <a href="#frontend">Front-end</a>
-          <a href="#contato">Contato</a>
-        </nav>
+  <a
+    href="#sobre"
+    className={activeSection === "sobre" ? "active" : ""}
+  >
+    Sobre
+  </a>
+
+  <a
+    href="#skills"
+    className={activeSection === "skills" ? "active" : ""}
+  >
+    Áreas
+  </a>
+
+  <a
+    href="#design"
+    className={activeSection === "design" ? "active" : ""}
+  >
+    Design
+  </a>
+
+  <a
+    href="#frontend"
+    className={activeSection === "frontend" ? "active" : ""}
+  >
+    Front-end
+  </a>
+
+  <a
+    href="#contato"
+    className={activeSection === "contato" ? "active" : ""}
+  >
+    Contato
+  </a>
+</nav>
       </header>
 
       <main>
