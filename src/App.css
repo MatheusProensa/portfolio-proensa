@@ -815,7 +815,7 @@ main {
   }
 
   .brand img {
-    height: 22px;
+    height: 16px;
   }
 
   .nav {
@@ -839,15 +839,12 @@ main {
   }
 
   .brand-orbit {
-    width: 210px;
-    height: 210px;
-    max-width: 70vw;
-    max-height: 70vw;
+    width: 170px;
+    height: 170px;
   }
 
   .brand-orbit img {
-    width: 138px;
-    max-width: 66%;
+    width: 110px;
   }
 
   .hero-content {
@@ -858,14 +855,14 @@ main {
     margin: 0 auto;
   }
 
-  .hero-content h1 {
-    font-size: clamp(50px, 15vw, 68px);
+  .hero h1 {
+    font-size: 52px !important;
     line-height: 0.9;
     letter-spacing: -3px;
   }
 
   .hero-wordmark {
-    width: min(290px, 82vw);
+    width: 220px !important;
     margin-top: -2px;
   }
 
