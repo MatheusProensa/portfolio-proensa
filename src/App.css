@@ -818,21 +818,21 @@ main {
     display: none;
   }
 
-  .hero {
-    min-height: auto;
+.hero {
+  min-height: auto;
 
-    padding-top: 50px;
+  padding-top: 20px;
 
-    padding-bottom: 40px;
+  padding-bottom: 10px;
 
-    display: flex;
+  display: flex;
 
-    flex-direction: column-reverse;
+  flex-direction: column;
 
-    justify-content: center;
+  justify-content: center;
 
-    gap: 28px;
-  }
+  gap: 8px;
+}
 
   .hero-content {
     align-items: center;
@@ -1138,4 +1138,12 @@ main {
   width: auto;
 
   align-self: flex-start;
+}
+
+.hero-visual {
+  margin-bottom: -30px;
+}
+
+.hero-content {
+  margin-top: -10px;
 }
