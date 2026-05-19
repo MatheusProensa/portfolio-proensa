@@ -1112,3 +1112,9 @@ main {
 
   font-size: 76px;
 }
+
+.frontend-content .project-button {
+  width: auto;
+
+  align-self: flex-start;
+}
