@@ -808,48 +808,234 @@ main {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 
   .navbar {
-    padding: 18px 20px;
+    padding: 16px 22px;
+  }
+
+  .brand img {
+    height: 22px;
   }
 
   .nav {
     display: none;
   }
 
-.hero {
-  min-height: auto !important;
+  .hero {
+    min-height: auto;
+    padding: 32px 22px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    text-align: center;
+  }
 
-  padding-top: 0px !important;
+  .hero-visual {
+    order: 1;
+    width: 100%;
+    margin: 0 auto -6px;
+  }
 
-  padding-bottom: 0px !important;
+  .brand-orbit {
+    width: 210px;
+    height: 210px;
+    max-width: 70vw;
+    max-height: 70vw;
+  }
 
-  display: flex !important;
+  .brand-orbit img {
+    width: 138px;
+    max-width: 66%;
+  }
 
-  flex-direction: column-reverse !important;
+  .hero-content {
+    order: 2;
+    width: 100%;
+    max-width: 390px;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
 
-  justify-content: center !important;
+  .hero-content h1 {
+    font-size: clamp(50px, 15vw, 68px);
+    line-height: 0.9;
+    letter-spacing: -3px;
+  }
 
-  align-items: center !important;
+  .hero-wordmark {
+    width: min(290px, 82vw);
+    margin-top: -2px;
+  }
 
-  gap: 0px !important;
+  .hero-role {
+    font-size: clamp(18px, 5vw, 22px);
+    line-height: 1.2;
+    margin-top: 18px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary {
+    min-width: 136px;
+    min-height: 48px;
+    padding: 13px 18px;
+    font-size: 13px;
+  }
+
+  .hero-socials {
+    justify-content: center;
+    margin-top: 22px;
+  }
+
+  .socials a {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .section {
+    padding: 76px 22px;
+  }
+
+  .section-title {
+    font-size: clamp(34px, 9vw, 42px);
+  }
+
+  .about-layout,
+  .skills-grid,
+  .design-projects,
+  .frontend-grid,
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .about-layout {
+    gap: 34px;
+  }
+
+  .about-copy {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .about-copy p {
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  .skill-card {
+    padding: 32px;
+  }
+
+  .skill-card h3 {
+    font-size: 32px;
+  }
+
+  .design-image,
+  .frontend-preview,
+  .frontend-placeholder {
+    height: 220px;
+  }
+
+  .contact-card {
+    padding: 34px 24px;
+    gap: 30px;
+  }
+
+  .contact-left h3 {
+    font-size: 34px;
+    line-height: 1.05;
+    white-space: normal;
+  }
+
+  .contact-form {
+    margin-top: 8px;
+  }
+
+  .design-card,
+  .frontend-card,
+  .skill-card {
+    min-height: auto;
+  }
+
 }
- .hero-content {
-  margin-top: -40px !important;
+
+  .hero-content {
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 64px;
+
+    line-height: 0.92;
+  }
+
+  .hero-wordmark {
+    width: 250px;
+
+    margin-top: -2px;
+  }
+
+  .hero-role {
+    font-size: 18px;
+
+    line-height: 1.2;
+
+    margin-top: 18px;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 24px;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary {
+    min-width: 135px;
+
+    padding: 13px 18px;
+
+    font-size: 13px;
+  }
+
+  .hero-socials {
+    justify-content: center;
+
+    margin-top: 22px;
+  }
+
+  
+ .brand-orbit {
+  width: 190px;
+
+  height: 190px;
 }
 
-.hero-visual {
-  margin-bottom: -10px !important;
-}
-
-.brand-orbit {
-  width: 190px !important;
-  height: 190px !important;
-}
-
-.brand-orbit img {
-  width: 130px !important;
+  .brand-orbit img {
+  width: 130px;
 }
 
   .section {
@@ -888,15 +1074,6 @@ main {
     min-height: auto;
   }
 
-  .hero-visual {
-    margin-bottom: -30px;
-  }
-
-  .hero-content {
-    margin-top: -10px;
-  }
-
-}
 
 .loader-screen {
   position: fixed;
@@ -921,16 +1098,7 @@ main {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
   filter: blur(12px);
-}
-
-.loader-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transform: scale(1.02);
 }
 
 .loader-content {
@@ -1101,10 +1269,3 @@ main {
   align-self: flex-start;
 }
 
-.hero-visual {
-  margin-bottom: -30px;
-}
-
-.hero-content {
-  margin-top: -10px;
-}
