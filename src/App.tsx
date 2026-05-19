@@ -160,6 +160,15 @@ export default function App() {
 
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     function handleNavbar() {
@@ -215,12 +224,24 @@ export default function App() {
 }, []);
 
 
+  if (isLoading) {
   return (
-    <div className="portfolio">
-      <NetworkBackground />
+    <div className="loader-screen">
+      <div className="loader-content">
+        <img src={logo} alt="Proensa" className="loader-logo" />
 
-      <div className="glow glow-one"></div>
-      <div className="glow glow-two"></div>
+        <div className="loader-line"></div>
+      </div>
+    </div>
+  );
+}
+
+return (
+  <div className="portfolio">
+    <NetworkBackground />
+
+    <div className="glow glow-one"></div>
+    <div className="glow glow-two"></div>
 
 <header
   className={`navbar disable-network ${
