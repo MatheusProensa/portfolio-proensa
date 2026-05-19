@@ -903,17 +903,20 @@ main {
 .loader-screen {
   position: fixed;
   inset: 0;
-
   background: #0b1120;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
 
-  animation: loaderExit 0.7s ease forwards;
-  animation-delay: 1.2s;
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .loader-content {
