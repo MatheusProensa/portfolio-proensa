@@ -3,6 +3,7 @@ import "./App.css";
 import { useEffect, useRef, useState } from "react";
 
 import simbolo from "./assets/p-simbolo.png";
+import printPortfolio from "./assets/printportfolio.png";
 import logo from "./assets/logo-proensa.png";
 import fotoPerfil from "./assets/fotoperfil.png";
 
@@ -481,43 +482,55 @@ return (
 
           <div className="frontend-grid">
             <article className="frontend-card disable-network reveal reveal-delay-1">
-              <span>React</span>
+              <div className="frontend-preview">
+                <img src={printPortfolio} alt="Preview do portfólio" />
+              </div>
 
-              <h3>Portfólio Proensa</h3>
+              <div className="frontend-content">
+                <span>React</span>
 
-              <p>
-                Portfólio pessoal desenvolvido com React, TypeScript e direção
-                visual própria.
-              </p>
+                <h3>Portfólio Proensa</h3>
 
-              <a
-                href="https://github.com/MatheusProensa/portfolio-proensa"
-                target="_blank"
-                rel="noreferrer"
-                className="project-button"
-              >
-                Ver GitHub <FaGithub />
-              </a>
+                <p>
+                  Portfólio pessoal desenvolvido com React, TypeScript e direção
+                  visual própria.
+                </p>
+
+                <a
+                  href="https://github.com/MatheusProensa/portfolio-proensa"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-button"
+                >
+                  Ver GitHub <FaGithub />
+                </a>
+              </div>
             </article>
 
             <article className="frontend-card disable-network reveal reveal-delay-2">
-              <span>Em desenvolvimento</span>
+              <div className="frontend-placeholder">
+                <FaReact />
+              </div>
 
-              <h3>Novos projetos em breve</h3>
+              <div className="frontend-content">
+                <span>Em desenvolvimento</span>
 
-              <p>
-                Espaço reservado para aplicações web, sistemas e estudos
-                front-end.
-              </p>
+                <h3>Novos projetos em breve</h3>
 
-              <a
-                href="https://github.com/MatheusProensa"
-                target="_blank"
-                rel="noreferrer"
-                className="project-button"
-              >
-                Ver GitHub <FaGithub />
-              </a>
+                <p>
+                  Espaço reservado para aplicações web, sistemas e estudos
+                  front-end.
+                </p>
+
+                <a
+                  href="https://github.com/MatheusProensa"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-button"
+                >
+                  Ver GitHub <FaGithub />
+                </a>
+              </div>
             </article>
           </div>
         </section>
