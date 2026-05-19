@@ -159,15 +159,31 @@ export default function App() {
   useRevealAnimation();
 
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+
   useEffect(() => {
-  const sections = [
-    "home",
-    "sobre",
-    "skills",
-    "design",
-    "frontend",
-    "contato",
-  ];
+    function handleNavbar() {
+      setIsScrolled(window.scrollY > 30);
+    }
+
+    handleNavbar();
+
+    window.addEventListener("scroll", handleNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", handleNavbar);
+    };
+  }, []);
+
+  useEffect(() => {
+    const sections = [
+      "home",
+      "sobre",
+      "skills",
+      "design",
+      "frontend",
+      "contato",
+    ];
 
   function handleScroll() {
     const scrollPosition = window.scrollY + 160;
@@ -206,8 +222,11 @@ export default function App() {
       <div className="glow glow-one"></div>
       <div className="glow glow-two"></div>
 
-      <header className="navbar disable-network">
-        <a href="#home" className="brand">
+<header
+  className={`navbar disable-network ${
+    isScrolled ? "navbar-scrolled" : ""
+  }`}
+>        <a href="#home" className="brand">
           <img src={simbolo} alt="Proensa" />
         </a>
 
