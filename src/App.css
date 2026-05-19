@@ -827,7 +827,7 @@ main {
 
     display: flex;
 
-    flex-direction: column;
+    flex-direction: column-reverse;
 
     justify-content: center;
 
@@ -888,19 +888,16 @@ main {
     margin-top: 22px;
   }
 
-  .hero-visual {
-    order: 0;
-  }
+  
+ .brand-orbit {
+  width: 190px;
 
-  .brand-orbit {
-    width: 220px;
-
-    height: 220px;
-  }
+  height: 190px;
+}
 
   .brand-orbit img {
-    width: 150px;
-  }
+  width: 130px;
+}
 
   .section {
     padding: 80px 20px;
