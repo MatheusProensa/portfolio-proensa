@@ -161,6 +161,11 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [cursor, setCursor] = useState({
+    x: 0,
+    y: 0,
+  });
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -194,7 +199,7 @@ export default function App() {
       "contato",
     ];
 
-  function handleScroll() {
+    function handleScroll() {
     const scrollPosition = window.scrollY + 160;
 
     sections.forEach((sectionId) => {
@@ -214,12 +219,27 @@ export default function App() {
     });
   }
 
-  handleScroll();
+    handleScroll();
 
-  window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+  function handleMouseMove(event: MouseEvent) {
+    setCursor({
+      x: event.clientX,
+      y: event.clientY,
+    });
+  }
+
+  window.addEventListener("mousemove", handleMouseMove);
 
   return () => {
-    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("mousemove", handleMouseMove);
   };
 }, []);
 
@@ -229,59 +249,57 @@ return (
 
     <div className="glow glow-one"></div>
     <div className="glow glow-two"></div>
+
+    <div
+      className="cursor-glow"
+      style={{
+        left: `${cursor.x}px`,
+        top: `${cursor.y}px`,
+      }}
+    ></div>
+
     <div className={`loader-screen ${!isLoading ? "loader-hidden" : ""}`}>
-  <div className="loader-content">
-    <img src={logo} alt="Proensa" className="loader-logo" />
+      <div className="loader-content">
+        <img src={logo} alt="Proensa" className="loader-logo" />
 
-    <div className="loader-line"></div>
-  </div>
-</div>
+        <div className="loader-line"></div>
+      </div>
+    </div>
 
-<header
-  className={`navbar disable-network ${
-    isScrolled ? "navbar-scrolled" : ""
-  }`}
->        <a href="#home" className="brand">
-          <img src={simbolo} alt="Proensa" />
+    <header
+      className={`navbar disable-network ${
+        isScrolled ? "navbar-scrolled" : ""
+      }`}
+    >
+      <a href="#home" className="brand">
+        <img src={simbolo} alt="Proensa" />
+      </a>
+
+      <nav className="nav">
+        <a href="#sobre" className={activeSection === "sobre" ? "active" : ""}>
+          Sobre
         </a>
 
-        <nav className="nav">
-  <a
-    href="#sobre"
-    className={activeSection === "sobre" ? "active" : ""}
-  >
-    Sobre
-  </a>
+        <a href="#skills" className={activeSection === "skills" ? "active" : ""}>
+          Áreas
+        </a>
 
-  <a
-    href="#skills"
-    className={activeSection === "skills" ? "active" : ""}
-  >
-    Áreas
-  </a>
+        <a href="#design" className={activeSection === "design" ? "active" : ""}>
+          Design
+        </a>
 
-  <a
-    href="#design"
-    className={activeSection === "design" ? "active" : ""}
-  >
-    Design
-  </a>
+        <a
+          href="#frontend"
+          className={activeSection === "frontend" ? "active" : ""}
+        >
+          Front-end
+        </a>
 
-  <a
-    href="#frontend"
-    className={activeSection === "frontend" ? "active" : ""}
-  >
-    Front-end
-  </a>
-
-  <a
-    href="#contato"
-    className={activeSection === "contato" ? "active" : ""}
-  >
-    Contato
-  </a>
-</nav>
-      </header>
+        <a href="#contato" className={activeSection === "contato" ? "active" : ""}>
+          Contato
+        </a>
+      </nav>
+    </header>
 
       <main>
         <section id="home" className="hero">
