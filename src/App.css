@@ -872,3 +872,20 @@ main {
 .hero-visual-mobile {
   display: none;
 }
+
+@keyframes roleFloat {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.92;
+  }
+
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 0.92;
+  }
+}
