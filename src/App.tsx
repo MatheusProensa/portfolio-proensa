@@ -158,16 +158,6 @@ function useRevealAnimation() {
 export default function App() {
   useRevealAnimation();
 
-  function scrollToSection(id: string) {
-    const section = document.querySelector(id);
-
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }
 
   return (
     <div className="portfolio">
