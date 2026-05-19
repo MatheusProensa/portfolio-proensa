@@ -161,10 +161,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [cursor, setCursor] = useState({
-    x: 0,
-    y: 0,
-  });
+
 
 
   useEffect(() => {
@@ -228,21 +225,7 @@ export default function App() {
     };
   }, []);
 
-  useEffect(() => {
-  function handleMouseMove(event: MouseEvent) {
-    setCursor({
-      x: event.clientX,
-      y: event.clientY,
-    });
-  }
-
-  window.addEventListener("mousemove", handleMouseMove);
-
-  return () => {
-    window.removeEventListener("mousemove", handleMouseMove);
-  };
-}, []);
-
+  
 return (
   <div className="portfolio">
     <NetworkBackground />
@@ -250,14 +233,7 @@ return (
     <div className="glow glow-one"></div>
     <div className="glow glow-two"></div>
 
-    <div
-      className="cursor-glow"
-      style={{
-        left: `${cursor.x}px`,
-        top: `${cursor.y}px`,
-      }}
-    ></div>
-
+    
     <div className={`loader-screen ${!isLoading ? "loader-hidden" : ""}`}>
       <div className="loader-content">
         <img src={logo} alt="Proensa" className="loader-logo" />
