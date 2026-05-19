@@ -820,20 +820,13 @@ main {
 
 .hero {
   min-height: auto;
-
   padding-top: 20px;
-
   padding-bottom: 10px;
-
   display: flex;
-
-  flex-direction: column;
-
+  flex-direction: column-reverse;
   justify-content: center;
-
   gap: 8px;
 }
-
   .hero-content {
     align-items: center;
 
@@ -933,6 +926,14 @@ main {
   .frontend-card,
   .skill-card {
     min-height: auto;
+  }
+
+  .hero-visual {
+    margin-bottom: -30px;
+  }
+
+  .hero-content {
+    margin-top: -10px;
   }
 
 }
