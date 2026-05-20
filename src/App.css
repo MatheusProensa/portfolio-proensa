@@ -878,13 +878,13 @@ main {
 
 .mobile-menu {
   position: fixed;
-  top: 82px;
+  top: 92px;
   left: 16px;
   right: 16px;
 
   padding: 28px;
 
-  background: rgba(5, 10, 25, 0.82);
+  background: rgba(5, 10, 25, 0.94);
   backdrop-filter: blur(22px);
 
   border: 1px solid rgba(56, 189, 248, 0.12);
