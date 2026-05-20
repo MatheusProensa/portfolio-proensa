@@ -942,12 +942,12 @@ main {
     min-height: auto;
   }
 
-  .frontend-preview {
-  height: 260px;
+ .frontend-preview {
+  height: 220px;
 }
 
 .frontend-preview img {
-  object-position: 35% top;
+  object-position: center top;
 }
 
 
@@ -1105,11 +1105,10 @@ main {
 .frontend-preview img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center top;
   display: block;
   transition: 0.5s ease;
-  background: #0b1120;
 }
 
 .frontend-card:hover .frontend-preview {
