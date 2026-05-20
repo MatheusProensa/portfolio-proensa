@@ -413,9 +413,9 @@ return (
 
               <div className="design-info">
                 <span>Identidade Visual</span>
-                <h3>Proensa Brand</h3>
+                <h3>Proensa</h3>
                 <p>
-                  Marca autoral com proposta minimalista, tecnológica e moderna.
+                  Marca autoral com proposta minimalista e tecnológica.
                 </p>
 
                 <a
@@ -436,9 +436,9 @@ return (
               ></div>
 
               <div className="design-info">
-                <span>Branding</span>
+                <span>Identidade Visual</span>
                 <h3>Ponto Grão</h3>
-                <p>Identidade visual para cafeteria contemporânea.</p>
+                <p>Projeto desenvolvido para uma cafeteria com proposta acolhedora e sofisticada.</p>
 
                 <a
                   href="https://www.behance.net/gallery/246372203/Identidade-Visual-Ponto-Grao"
@@ -458,9 +458,9 @@ return (
               ></div>
 
               <div className="design-info">
-                <span>Pet Branding</span>
+                <span>Identidade Visual</span>
                 <h3>Pako & Bella</h3>
-                <p>Identidade pet emocional, leve e moderna.</p>
+                <p>Projeto criado para Pet Shop com linguagem leve, afetiva e moderna.</p>
 
                 <a
                   href="https://www.behance.net/gallery/249385069/Identidade-Visual-Pet-Shop-Pako-Bella"
