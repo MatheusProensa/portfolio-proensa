@@ -813,6 +813,13 @@ main {
     white-space: normal;
   }
 }
+.menu-toggle {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
 
 @media (max-width: 700px) {
 
@@ -1222,10 +1229,3 @@ main {
   align-self: flex-start;
 }
 
-.menu-toggle {
-  display: none;
-}
-
-.mobile-menu {
-  display: none;
-}
