@@ -818,6 +818,10 @@ main {
     display: none;
   }
 
+.brand img {
+  height: 22px;
+}
+
 .hero {
   min-height: auto;
   padding: 36px 20px 52px;
@@ -864,6 +868,14 @@ main {
 
     margin-top: 24px;
   }
+.hero-actions {
+  width: 100%;
+}
+
+.hero-actions .btn {
+  flex: 1;
+  max-width: 170px;
+}
 
   .btn,
   .btn-primary,
@@ -959,13 +971,6 @@ main {
   filter: blur(12px);
 }
 
-.loader-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transform: scale(1.02);
-}
 
 .loader-content {
   display: flex;
