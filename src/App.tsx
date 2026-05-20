@@ -2,14 +2,14 @@ import "./App.css";
 
 import { useEffect, useRef, useState } from "react";
 
-import simbolo from "./assets/p-simbolo.png";
-import printPortfolio from "./assets/printportfolio.png";
-import logo from "./assets/logo-proensa.png";
-import fotoPerfil from "./assets/fotoperfil.png";
+import simbolo from "./assets/p-simbolo.webp";
+import printPortfolio from "./assets/printportfolio.webp";
+import logo from "./assets/logo-proensa.webp";
+import fotoPerfil from "./assets/fotoperfil.webp";
 
-import capaProensa from "./assets/capaproensa.png";
-import capaPontoGrao from "./assets/capapontograo.png";
-import capaPakoBella from "./assets/capapakoebella.png";
+import capaProensa from "./assets/capaproensa.webp";
+import capaPontoGrao from "./assets/capapontograo.webp";
+import capaPakoBella from "./assets/capapakoebella.webp";
 
 import {
   FaGithub,
