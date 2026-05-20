@@ -957,15 +957,17 @@ main {
 }
 
 .about-copy {
-  max-width: 92%;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
-  padding-left: 0;
+  padding: 0 18px;
   border-left: none;
 }
 
 .about-copy p {
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.9;
+  text-align: left;
 }
 
 }
