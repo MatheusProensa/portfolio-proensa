@@ -882,6 +882,9 @@ main {
   left: 16px;
   right: 16px;
 
+  max-height: 420px;
+  overflow: auto;
+
   padding: 28px;
 
   background: rgba(5, 10, 25, 0.94);
