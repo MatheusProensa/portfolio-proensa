@@ -950,9 +950,22 @@ main {
   object-position: 35% top;
 }
 
+
 .background {
   background-size: 180%;
   background-position: center top;
+}
+
+.about-copy {
+  max-width: 92%;
+  margin: 0 auto;
+  padding-left: 0;
+  border-left: none;
+}
+
+.about-copy p {
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 }
