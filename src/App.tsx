@@ -6,10 +6,10 @@ import simbolo from "./assets/p-simbolo.webp";
 import printPortfolio from "./assets/printportfolio.webp";
 import logo from "./assets/logo-proensa.webp";
 import fotoPerfil from "./assets/fotoperfil.webp";
-
 import capaProensa from "./assets/capaproensa.webp";
 import capaPontoGrao from "./assets/capapontograo.webp";
 import capaPakoBella from "./assets/capapakoebella.webp";
+
 
 import {
   FaGithub,
@@ -20,7 +20,9 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaArrowRight,
-  FaBehance,
+  FaBars,
+  FaTimes,
+  FaBehance
 } from "react-icons/fa";
 
 function NetworkBackground() {
@@ -162,7 +164,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [menuOpen, setMenuOpen] = useState(false);
 
 
   useEffect(() => {
@@ -226,9 +228,8 @@ export default function App() {
     };
   }, []);
 
-  
-return (
-  <div className="portfolio">
+  return (
+    <div className="portfolio">
     <NetworkBackground />
 
     <div className="glow glow-one"></div>
@@ -244,39 +245,55 @@ return (
     </div>
 
     <header
-      className={`navbar disable-network ${
-        isScrolled ? "navbar-scrolled" : ""
-      }`}
+  className={`navbar disable-network ${
+    isScrolled ? "navbar-scrolled" : ""
+  }`}
+>
+  <a href="#home" className="brand">
+    <img src={simbolo} alt="Proensa" />
+  </a>
+
+  <nav className="nav">
+    <a href="#sobre" className={activeSection === "sobre" ? "active" : ""}>
+      Sobre
+    </a>
+
+    <a href="#skills" className={activeSection === "skills" ? "active" : ""}>
+      Áreas
+    </a>
+
+    <a href="#design" className={activeSection === "design" ? "active" : ""}>
+      Design
+    </a>
+
+    <a
+      href="#frontend"
+      className={activeSection === "frontend" ? "active" : ""}
     >
-      <a href="#home" className="brand">
-        <img src={simbolo} alt="Proensa" />
-      </a>
+      Front-end
+    </a>
 
-      <nav className="nav">
-        <a href="#sobre" className={activeSection === "sobre" ? "active" : ""}>
-          Sobre
-        </a>
+    <a href="#contato" className={activeSection === "contato" ? "active" : ""}>
+      Contato
+    </a>
+  </nav>
 
-        <a href="#skills" className={activeSection === "skills" ? "active" : ""}>
-          Áreas
-        </a>
+  <button
+    className="menu-toggle"
+    onClick={() => setMenuOpen(!menuOpen)}
+    aria-label="Abrir menu"
+  >
+    {menuOpen ? <FaTimes /> : <FaBars />}
+  </button>
 
-        <a href="#design" className={activeSection === "design" ? "active" : ""}>
-          Design
-        </a>
-
-        <a
-          href="#frontend"
-          className={activeSection === "frontend" ? "active" : ""}
-        >
-          Front-end
-        </a>
-
-        <a href="#contato" className={activeSection === "contato" ? "active" : ""}>
-          Contato
-        </a>
-      </nav>
-    </header>
+  <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+    <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
+    <a href="#skills" onClick={() => setMenuOpen(false)}>Áreas</a>
+    <a href="#design" onClick={() => setMenuOpen(false)}>Design</a>
+    <a href="#frontend" onClick={() => setMenuOpen(false)}>Front-end</a>
+    <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>
+  </div>
+</header>
 
       <main>
         <section id="home" className="hero">

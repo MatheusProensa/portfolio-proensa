@@ -854,6 +854,62 @@ main {
   margin-top: 2px;
 }
 
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+
+  color: white;
+  font-size: 28px;
+
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 82px;
+  left: 0;
+
+  width: 100%;
+  padding: 28px 26px;
+
+  background: rgba(5, 10, 25, 0.97);
+  backdrop-filter: blur(18px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+
+  transition: 0.35s ease;
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.nav {
+  display: none;
+}
+
   .hero-role {
     font-size: 18px;
 
@@ -1164,4 +1220,12 @@ main {
   width: auto;
 
   align-self: flex-start;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
 }
