@@ -571,15 +571,35 @@ return (
               </div>
             </div>
 
-            <form className="contact-form">
-              <input placeholder="Seu nome" />
-              <input placeholder="Seu e-mail" />
-              <textarea placeholder="Me conte sobre sua ideia ou projeto"></textarea>
+            <form
+  className="contact-form"
+  action="https://formspree.io/f/xzdwdkge"
+  method="POST"
+>
+  <input
+    type="text"
+    name="nome"
+    placeholder="Seu nome"
+    required
+  />
 
-              <button type="button" className="btn-form">
-                Iniciar conversa <FaArrowRight />
-              </button>
-            </form>
+  <input
+    type="email"
+    name="email"
+    placeholder="Seu e-mail"
+    required
+  />
+
+  <textarea
+    name="mensagem"
+    placeholder="Me conte sobre sua ideia ou projeto"
+    required
+  ></textarea>
+
+  <button type="submit" className="btn-form">
+    Iniciar conversa <FaArrowRight />
+  </button>
+</form>
           </div>
         </section>
       </main>
