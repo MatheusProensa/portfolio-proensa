@@ -950,6 +950,11 @@ main {
   object-position: 35% top;
 }
 
+.background {
+  background-size: 180%;
+  background-position: center top;
+}
+
 }
 
 .loader-screen {
