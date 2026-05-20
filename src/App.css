@@ -885,14 +885,14 @@ main {
   max-height: 420px;
   overflow: auto;
 
-  padding: 28px;
+  padding: 22px;
 
   background: rgba(5, 10, 25, 0.94);
   backdrop-filter: blur(22px);
 
   border: 1px solid rgba(56, 189, 248, 0.12);
 
-  border-radius: 28px;
+  border-radius: 24px;
 
   display: flex;
   flex-direction: column;
@@ -922,7 +922,7 @@ main {
   color: #f8fafc;
   text-decoration: none;
 
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
 
   padding: 18px 12px;
