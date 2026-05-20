@@ -610,7 +610,9 @@ main {
   display: flex;
 
   flex-direction: column;
-}
+
+  min-height: 100%;
+} 
 
 .frontend-card .project-button {
   margin-top: 24px;
@@ -857,19 +859,13 @@ main {
     margin-top: 18px;
   }
 
-  .hero-actions {
-    flex-direction: row;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 14px;
-
-    margin-top: 24px;
-  }
-.hero-actions {
+ .hero-actions {
   width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
 }
 
 .hero-actions .btn {
@@ -1069,12 +1065,11 @@ main {
 
 .frontend-preview {
   width: 100%;
-  height: 180px;
-
+  height: 245px;
   overflow: hidden;
-
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
+
 .frontend-preview img {
   width: 100%;
   height: 100%;
