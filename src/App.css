@@ -1229,3 +1229,8 @@ main {
   align-self: flex-start;
 }
 
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
