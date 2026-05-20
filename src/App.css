@@ -897,7 +897,7 @@ main {
   display: flex;
   flex-direction: column;
 
-  gap: 6px;
+  gap: 0px;
 
   transform: translateY(-20px) scale(0.98);
   opacity: 0;
