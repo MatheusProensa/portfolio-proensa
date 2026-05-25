@@ -24,9 +24,12 @@ body {
   animation: siteFade 0.8s ease;
 
   background:
-    radial-gradient(circle at left, rgba(37, 99, 235, 0.14), transparent 34%),
-    radial-gradient(circle at right, rgba(56, 189, 248, 0.08), transparent 32%),
+    radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 30%, rgba(56, 189, 248, 0.12), transparent 30%),
+    radial-gradient(circle at bottom, rgba(29, 126, 176, 0.10), transparent 32%),
     #0b1120;
+
+  overflow: hidden;
 }
 
 .network-canvas {
@@ -47,43 +50,66 @@ body {
 }
 
 .glow-one {
-  width: 400px;
-  height: 400px;
-  background: rgba(37, 99, 235, 0.12);
-  top: -120px;
-  left: -120px;
+  width: 620px;
+  height: 620px;
+
+  background:
+    radial-gradient(circle, rgba(37, 99, 235, 0.22), transparent 70%);
+
+  top: -220px;
+  left: -220px;
+
+  animation: floatingGlowOne 10s ease-in-out infinite alternate;
 }
 
 .glow-two {
-  width: 400px;
-  height: 400px;
-  background: rgba(56, 189, 248, 0.08);
-  right: -100px;
-  bottom: -100px;
+  width: 520px;
+  height: 520px;
+
+  background:
+    radial-gradient(circle, rgba(56, 189, 248, 0.14), transparent 70%);
+
+  right: -180px;
+  bottom: -180px;
+
+  animation: floatingGlowTwo 12s ease-in-out infinite alternate;
 }
 
 .navbar {
   width: 100%;
-  padding: 22px 70px;
+  padding: 20px 70px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
+
+  position: fixed;
   top: 0;
+  left: 0;
+
   z-index: 100;
-  backdrop-filter: blur(16px);
-  background: rgba(11, 17, 32, 0.02);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  background: transparent;
+
+  border-bottom: 1px solid transparent;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    backdrop-filter 0.35s ease,
+    padding 0.35s ease;
 }
 .navbar-scrolled {
-  background: rgba(11, 17, 32, 0.88);
+  background: rgba(5, 10, 25, 0.72);
+
+  backdrop-filter: blur(22px);
 
   border-bottom: 1px solid rgba(56, 189, 248, 0.10);
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.24);
+    0 10px 40px rgba(0, 0, 0, 0.32);
 
-  backdrop-filter: blur(18px);
+  padding: 16px 70px;
 }
 
 .brand img {
@@ -137,14 +163,14 @@ main {
 }
 
 .hero {
-  min-height: calc(100vh - 76px);
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 0.95fr 1fr;
   align-items: center;
   gap: 80px;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 60px 70px 80px;
+  padding: 130px 70px 80px;
   position: relative;
   z-index: 2;
 }
@@ -542,8 +568,13 @@ main {
 }
 
 .design-card:hover .design-image {
-  transform: scale(1.06);
-  filter: saturate(1.08) contrast(1.04);
+  transform: scale(1.08);
+
+  filter:
+    saturate(1.15)
+    contrast(1.08)
+    brightness(1.04);
+
 }
 
 .design-image {
@@ -1215,7 +1246,12 @@ main {
 }
 
 .frontend-card:hover .frontend-preview img {
-  transform: scale(1.02);
+  transform: scale(1.08);
+
+  filter:
+    saturate(1.12)
+    contrast(1.05)
+    brightness(1.03);
 }
 
 .frontend-content {
@@ -1260,4 +1296,154 @@ main {
   display: flex;
   align-items: center;
   gap: 18px;
+}
+
+/* EFEITO SPOTLIGHT NOS CARDS - ESTILO VUE BITS */
+.skill-card,
+.design-card,
+.frontend-card,
+.contact-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before,
+.design-card::before,
+.frontend-card::before,
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at var(--x, 50%) var(--y, 50%),
+      rgba(56, 189, 248, 0.22),
+      transparent 38%
+    );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skill-card:hover::before,
+.design-card:hover::before,
+.frontend-card:hover::before,
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card > *,
+.design-card > *,
+.frontend-card > *,
+.contact-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.skill-card,
+.design-card,
+.frontend-card,
+.contact-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 22, 45, 0.88),
+      rgba(8, 13, 28, 0.92)
+    );
+}
+
+@keyframes floatingGlowOne {
+  from {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  to {
+    transform: translate(40px, 30px) scale(1.08);
+  }
+}
+
+@keyframes floatingGlowTwo {
+  from {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  to {
+    transform: translate(-35px, -25px) scale(1.1);
+  }
+}
+
+/* ========================================= */
+/* SHINY BUTTONS - VUE BITS STYLE */
+/* ========================================= */
+
+.btn,
+.project-button,
+.btn-form {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before,
+.project-button::before,
+.btn-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  transform: skewX(-22deg);
+  transition: 0.65s ease;
+  pointer-events: none;
+}
+
+.btn:hover::before,
+.project-button:hover::before,
+.btn-form:hover::before {
+  left: 130%;
+}
+
+
+
+.design-image,
+.frontend-preview img {
+  transition:
+    transform 0.7s ease,
+    filter 0.7s ease;
+}
+
+.electric-border {
+  border: 1px solid rgba(56, 189, 248, 0.85);
+  box-shadow:
+    0 0 18px rgba(56, 189, 248, 0.35),
+    0 0 42px rgba(37, 99, 235, 0.22);
+  animation: electricPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes electricPulse {
+  0%,
+  100% {
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow:
+      0 0 14px rgba(56, 189, 248, 0.22),
+      0 0 34px rgba(37, 99, 235, 0.14);
+  }
+
+  50% {
+    border-color: rgba(56, 189, 248, 1);
+    box-shadow:
+      0 0 24px rgba(56, 189, 248, 0.48),
+      0 0 58px rgba(37, 99, 235, 0.32);
+  }
 }

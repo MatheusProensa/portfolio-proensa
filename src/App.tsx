@@ -168,6 +168,29 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+  function handleSpotlight(event: MouseEvent) {
+    const cards = document.querySelectorAll(
+      ".skill-card, .design-card, .frontend-card, .contact-card"
+    );
+
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      (card as HTMLElement).style.setProperty("--x", `${x}px`);
+      (card as HTMLElement).style.setProperty("--y", `${y}px`);
+    });
+  }
+
+  window.addEventListener("mousemove", handleSpotlight);
+
+  return () => {
+    window.removeEventListener("mousemove", handleSpotlight);
+  };
+}, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -502,7 +525,7 @@ export default function App() {
   <div className="frontend-grid">
 
     {/* PORTFÓLIO */}
-    <article className="frontend-card disable-network reveal reveal-delay-1">
+    <article className="frontend-card electric-border disable-network reveal reveal-delay-1">
       <div className="frontend-preview">
         <img src={printPortfolio} alt="Preview do portfólio" />
       </div>
