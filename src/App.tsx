@@ -9,6 +9,8 @@ import fotoPerfil from "./assets/fotoperfil.webp";
 import capaProensa from "./assets/capaproensa.webp";
 import capaPontoGrao from "./assets/capapontograo.webp";
 import capaPakoBella from "./assets/capapakoebella.webp";
+import dashboard from "./assets/dashboard.webp";
+import universidade from "./assets/universidade.webp";
 
 
 import {
@@ -493,64 +495,95 @@ export default function App() {
         </section>
 
         <section id="frontend" className="section">
-          <div className="section-center reveal">
-            <h2 className="section-title">Projetos Front-end</h2>
-          </div>
+  <div className="section-center reveal">
+    <h2 className="section-title">Projetos Front-end</h2>
+  </div>
 
-          <div className="frontend-grid">
-            <article className="frontend-card disable-network reveal reveal-delay-1">
-              <div className="frontend-preview">
-                <img src={printPortfolio} alt="Preview do portfólio" />
-              </div>
+  <div className="frontend-grid">
 
-              <div className="frontend-content">
-                <span>React</span>
+    {/* PORTFÓLIO */}
+    <article className="frontend-card disable-network reveal reveal-delay-1">
+      <div className="frontend-preview">
+        <img src={printPortfolio} alt="Preview do portfólio" />
+      </div>
 
-                <h3>Portfólio Proensa</h3>
+      <div className="frontend-content">
+        <span>React • TypeScript</span>
 
-                <p>
-                  Portfólio pessoal desenvolvido com React, TypeScript e direção
-                  visual própria.
-                </p>
+        <h3>Portfólio Proensa</h3>
 
-                <a
-                  href="https://github.com/MatheusProensa/portfolio-proensa"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-button"
-                >
-                  Ver GitHub <FaGithub />
-                </a>
-              </div>
-            </article>
+        <p>
+          Portfólio pessoal desenvolvido com React, TypeScript e direção visual própria,
+          focado em identidade visual moderna e experiência premium.
+        </p>
 
-            <article className="frontend-card disable-network reveal reveal-delay-2">
-              <div className="frontend-placeholder">
-                <FaReact />
-              </div>
+        <a
+          href="https://github.com/MatheusProensa/portfolio-proensa"
+          target="_blank"
+          rel="noreferrer"
+          className="project-button"
+        >
+          Ver GitHub <FaGithub />
+        </a>
+      </div>
+    </article>
 
-              <div className="frontend-content">
-                <span>Em desenvolvimento</span>
+    {/* DASHBOARD */}
+    <article className="frontend-card disable-network reveal reveal-delay-2">
+      <div className="frontend-preview">
+        <img src={dashboard} alt="Dashboard Chamados TI" />
+      </div>
 
-                <h3>Novos projetos em breve</h3>
+      <div className="frontend-content">
+        <span>React • Dashboard UI</span>
 
-                <p>
-                  Espaço reservado para aplicações web, sistemas e estudos
-                  front-end.
-                </p>
+        <h3>Dashboard Chamados TI</h3>
 
-                <a
-                  href="https://github.com/MatheusProensa"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-button"
-                >
-                  Ver GitHub <FaGithub />
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
+        <p>
+          Sistema visual para gerenciamento de chamados técnicos com foco em
+          interface moderna, responsividade e experiência administrativa.
+        </p>
+
+        <a
+          href="https://github.com/MatheusProensa/dashboard-chamados-ti"
+          target="_blank"
+          rel="noreferrer"
+          className="project-button"
+        >
+          Ver GitHub <FaGithub />
+        </a>
+      </div>
+    </article>
+
+    {/* UNIVERSIDADE */}
+    <article className="frontend-card disable-network reveal reveal-delay-3">
+      <div className="frontend-preview">
+        <img src={universidade} alt="Front-end Universidade" />
+      </div>
+
+      <div className="frontend-content">
+        <span>React • SPA</span>
+
+        <h3>Front-end Universidade</h3>
+
+        <p>
+          Projeto acadêmico desenvolvido com React utilizando rotas,
+          componentes reutilizáveis e estrutura SPA moderna.
+        </p>
+
+        <a
+          href="https://github.com/MatheusProensa/front-end-universidade"
+          target="_blank"
+          rel="noreferrer"
+          className="project-button"
+        >
+          Ver GitHub <FaGithub />
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
 
         <section id="contato" className="section">
           <div className="section-center reveal">
