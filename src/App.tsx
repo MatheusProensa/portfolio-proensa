@@ -531,7 +531,7 @@ export default function App() {
       </div>
 
       <div className="frontend-content">
-        <span>React • TypeScript</span>
+        <span>React • TypeScript • Vite • Framer Motion</span>
 
         <h3>Portfólio Proensa</h3>
 
@@ -558,7 +558,7 @@ export default function App() {
       </div>
 
       <div className="frontend-content">
-        <span>React • Dashboard UI</span>
+        <span>React • TypeScript • CSS3 • UI Dashboard</span>
 
         <h3>Dashboard Chamados TI</h3>
 
@@ -585,9 +585,9 @@ export default function App() {
       </div>
 
       <div className="frontend-content">
-        <span>React • SPA</span>
+        <span>React • TypeScript • Vite • React Router • CSS3</span>
 
-        <h3>Front-end Universidade</h3>
+        <h3>Universidade React</h3>
 
         <p>
           Projeto acadêmico desenvolvido com React utilizando rotas,
