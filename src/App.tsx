@@ -14,6 +14,7 @@ import {
   FaArrowRight,
   FaBars,
   FaTimes,
+  FaTools,
 } from "react-icons/fa";
 
 import logoProensa from "./assets/logo-proensa.webp";
@@ -25,6 +26,7 @@ import capaPakoBella from "./assets/capapakoebella.webp";
 import printPortfolio from "./assets/capa-portfolio.png";
 import dashboard from "./assets/capa-dashboard.png";
 import universidade from "./assets/capa-universidade.png";
+import escolaCda from "./assets/capa-escolacda.png";
 
 /* ===================== TIPOS / DADOS ===================== */
 
@@ -41,6 +43,7 @@ type ModalData = {
   linkLabel: string;
   kind: "behance" | "github";
   fit: "cover" | "contain";
+  wip?: boolean;
 };
 
 type DesignProject = {
@@ -58,6 +61,7 @@ type FrontProject = {
   img: string;
   title: string;
   featured?: boolean;
+  wip?: boolean;
   desc: string;
   longDesc: string;
   stack: string[];
@@ -116,6 +120,7 @@ const FRONT: FrontProject[] = [
   {
     img: dashboard,
     title: "Dashboard Chamados TI",
+    wip: true,
     desc: "Sistema visual para gerenciamento de chamados técnicos com foco em interface moderna, responsividade e experiência administrativa.",
     longDesc:
       "Interface administrativa para gestão de chamados de TI. Foco em clareza e leitura rápida: visão geral com indicadores, volume de chamados por período e uma organização visual que prioriza a tomada de decisão. Construído com atenção à responsividade e à hierarquia da informação.",
@@ -132,6 +137,17 @@ const FRONT: FrontProject[] = [
     stack: ["React", "TypeScript", "React Router", "CSS3"],
     papel: "Front-end",
     href: "https://github.com/MatheusProensa/front-end-universidade",
+  },
+  {
+    img: escolaCda,
+    title: "Escola CDA",
+    wip: true,
+    desc: "Site institucional moderno para escola de educação infantil e fundamental, com identidade acolhedora, painel administrativo e foco em acessibilidade.",
+    longDesc:
+      "Site institucional completo da Escola CDA (Santa Maria/RS). Reúne um site público — home emocional, segmentos, metodologia, espaços com lightbox e álbuns de momentos — e um painel administrativo com login e editores por seção, pronto para integração com back-end. Inclui VLibras, alto contraste, aumento de fonte, SEO por página e deploy automático na Vercel. Projeto em desenvolvimento ativo.",
+    stack: ["React", "TypeScript", "Vite", "React Router"],
+    papel: "Front-end",
+    href: "https://github.com/MatheusProensa/front-end-escola-cda",
   },
 ];
 
@@ -522,7 +538,7 @@ function FrontSection({ onOpen }: { onOpen: (d: ModalData) => void }) {
         <div className="sec-head reveal">
           <h2>Projetos Front-end</h2>
         </div>
-        <div className="grid-3">
+        <div className="grid-2">
           {FRONT.map((p, i) => {
             const data: ModalData = {
               image: p.img,
@@ -537,6 +553,7 @@ function FrontSection({ onOpen }: { onOpen: (d: ModalData) => void }) {
               linkLabel: "Ver no GitHub",
               kind: "github",
               fit: "contain",
+              wip: p.wip,
             };
             return (
               <article
@@ -555,6 +572,11 @@ function FrontSection({ onOpen }: { onOpen: (d: ModalData) => void }) {
                 <div className="thumb">
                   <img src={p.img} alt={p.title} loading="lazy" />
                   {p.featured && <span className="featured-flag">Destaque</span>}
+                  {p.wip && (
+                    <span className="wip-flag">
+                      <FaTools /> Em andamento
+                    </span>
+                  )}
                 </div>
                 <div className="body">
                   <span className="cat">{p.stack.slice(0, 3).join(" · ")}</span>
@@ -615,7 +637,14 @@ function ProjectModal({ project, onClose }: { project: ModalData | null; onClose
         </div>
         <div className="modal-body">
           <span className="cat">{p.eyebrow}</span>
-          <h3>{p.title}</h3>
+          <h3>
+            {p.title}
+            {p.wip && (
+              <span className="modal-wip">
+                <FaTools /> Em andamento
+              </span>
+            )}
+          </h3>
           <p className="modal-lead">{p.desc}</p>
           <p className="modal-long">{p.longDesc}</p>
           <div className="modal-meta">

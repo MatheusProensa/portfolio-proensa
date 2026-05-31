@@ -170,6 +170,7 @@ main{position:relative; z-index:2}
 
 /* =================== CARD GRIDS =================== */
 .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+.grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:24px}
 .pcard{background:var(--card); border:1px solid var(--hair); border-radius:var(--rad-lg);
   overflow:hidden; display:flex; flex-direction:column;
   transition:transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease)}
@@ -185,6 +186,15 @@ main{position:relative; z-index:2}
 .pcard .featured-flag{position:absolute; top:14px; right:14px; font-family:var(--display); font-weight:600;
   font-size:11px; letter-spacing:.6px; padding:6px 11px; border-radius:999px;
   background:var(--blue); color:#fff}
+.pcard .wip-flag{position:absolute; top:14px; left:14px; display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--display); font-weight:600; font-size:11px; letter-spacing:.4px; padding:6px 11px;
+  border-radius:999px; background:rgba(7,13,28,.78); backdrop-filter:blur(8px);
+  border:1px solid rgba(245,200,90,.5); color:#f5c85a}
+.pcard .wip-flag i{font-size:10px}
+.modal-wip{display:inline-flex; align-items:center; gap:6px; vertical-align:middle; margin-left:10px;
+  font-family:var(--display); font-weight:600; font-size:12px; letter-spacing:.3px; padding:4px 10px;
+  border-radius:999px; background:rgba(245,200,90,.12); border:1px solid rgba(245,200,90,.5); color:#f5c85a}
+.modal-wip i{font-size:11px}
 .pcard .body{padding:26px; display:flex; flex-direction:column; flex:1}
 .pcard .cat{font-family:var(--display); font-weight:600; font-size:12px; letter-spacing:1.5px;
   text-transform:uppercase; color:var(--cyan)}
@@ -333,7 +343,7 @@ footer b{color:var(--fg-muted)}
 /* =================== RESPONSIVE =================== */
 @media(max-width:980px){
   .hero-grid, .about-panel, .skills, .contact-card{grid-template-columns:1fr}
-  .grid-3{grid-template-columns:repeat(2,1fr); gap:20px}
+  .grid-3, .grid-2{grid-template-columns:repeat(2,1fr); gap:20px}
   .hero{padding:130px 0 80px}
   .hero-visual{order:-1; margin-bottom:10px}
   .monogram{width:230px; height:230px}
@@ -348,7 +358,7 @@ footer b{color:var(--fg-muted)}
   .sec-head{margin-bottom:40px}
 }
 @media(max-width:640px){
-  .grid-3{grid-template-columns:1fr; gap:18px}
+  .grid-3, .grid-2{grid-template-columns:1fr; gap:18px}
   .hero-cta{width:100%}
   .hero-actions{flex-direction:column; align-items:stretch}
   .hero-actions .btn{width:100%}
