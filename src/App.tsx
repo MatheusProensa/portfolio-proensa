@@ -22,9 +22,9 @@ import fotoPerfil from "./assets/fotoperfil.webp";
 import capaProensa from "./assets/capaproensa.webp";
 import capaPontoGrao from "./assets/capapontograo.webp";
 import capaPakoBella from "./assets/capapakoebella.webp";
-import printPortfolio from "./assets/printportfolio.webp";
-import dashboard from "./assets/dashboard.webp";
-import universidade from "./assets/universidade.webp";
+import printPortfolio from "./assets/capa-portfolio.png";
+import dashboard from "./assets/capa-dashboard.png";
+import universidade from "./assets/capa-universidade.png";
 
 /* ===================== TIPOS / DADOS ===================== */
 
