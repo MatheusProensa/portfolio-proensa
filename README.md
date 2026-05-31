@@ -21,20 +21,23 @@ O **Portfólio Proensa** reúne meus trabalhos de **design gráfico** e **front-
 
 🔗 **Repositório:** [github.com/MatheusProensa/portfolio-proensa](https://github.com/MatheusProensa/portfolio-proensa)
 
-🌐 **Demo:** _adicione aqui o link do deploy (Vercel / Netlify)_
+🌐 **Demo:** https://matheusproensa.vercel.app/
 
 ---
 
 ## 🖼️ Preview
 
-> 💡 Dica: tire prints das telas e coloque aqui (crie uma pasta `docs/` e referencie as imagens). Ex.:
->
-> ```md
-> ![Home](docs/home.png)
-> ![Projetos](docs/projetos.png)
-> ```
+<img width="1900" height="868" alt="Captura de tela 2026-05-31 154900" src="https://github.com/user-attachments/assets/e6aeabc0-672b-4de1-9a12-357c2bb6c2b2" />
+<img width="1900" height="866" alt="Captura de tela 2026-05-31 154955" src="https://github.com/user-attachments/assets/cfc54747-1ad0-4b25-bd45-44d3f9f7d1df" />
+<img width="1899" height="863" alt="Captura de tela 2026-05-31 154908" src="https://github.com/user-attachments/assets/d39e603a-2186-431c-a234-8aa304ee2c79" />
+<img width="1898" height="861" alt="Captura de tela 2026-05-31 154917" src="https://github.com/user-attachments/assets/d5758376-36bf-46db-a196-4017d426e69e" />
+<img width="1896" height="862" alt="Captura de tela 2026-05-31 154926" src="https://github.com/user-attachments/assets/e1ecaefe-04c0-46f4-8413-12ed1bfdd3b9" />
+<img width="1900" height="865" alt="Captura de tela 2026-05-31 154942" src="https://github.com/user-attachments/assets/6fc7af9d-0d9b-45a3-925d-b24cf8761f67" />
 
----
+
+
+
+
 
 ## ✨ Funcionalidades
 
