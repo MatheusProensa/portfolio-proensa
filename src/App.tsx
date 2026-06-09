@@ -25,6 +25,8 @@ import capaPontoGrao from "./assets/capapontograo.webp";
 import capaPakoBella from "./assets/capapakoebella.webp";
 import printPortfolio from "./assets/capa-portfolio.png";
 import dashboard from "./assets/capa-dashboard.png";
+import escala from "./assets/capa-escala.png";
+import almoxarifado from "./assets/capa-almoxarifado.png";
 import universidade from "./assets/capa-universidade.png";
 import escolaCda from "./assets/capa-escolacda.png";
 
@@ -116,6 +118,27 @@ const FRONT: FrontProject[] = [
     stack: ["React", "TypeScript", "Vite", "Framer Motion"],
     papel: "Design + Front-end",
     href: "https://github.com/MatheusProensa/portfolio-proensa",
+  },
+  {
+    img: almoxarifado,
+    title: "Almox Proensa",
+    wip: true,
+    desc: "Sistema de almoxarifado e controle de estoque desenvolvido para o setor de Suprimento do DTCEA-SM, substituindo as planilhas no trabalho diário.",
+    longDesc:
+      "Sistema web real, em uso no Destacamento de Controle do Espaço Aéreo de Santa Maria (DTCEA-SM). Nasceu de uma dor concreta — o controle de materiais em planilhas confusas — e foca em usabilidade operacional: dashboard com indicadores, entradas e saídas com responsável e documento, ajuste de estoque, alertas de itens críticos, histórico completo de movimentações e relatórios com exportação em CSV e PDF oficial. PWA instalável, com dados em tempo real via Supabase.",
+    stack: ["React", "Vite", "Supabase", "PWA"],
+    papel: "Design + Front-end",
+    href: "https://github.com/MatheusProensa/almoxarifado-dtceasm",
+  },
+  {
+    img: escala,
+    title: "Escala DTCEA-SM",
+    desc: "Sistema de escala de serviço (permanência) do DTCEA-SM, com autenticação, gestão da escala e exportação em Excel.",
+    longDesc:
+      "Aplicação web para organizar a escala de serviço de permanência do DTCEA-SM. Conta com autenticação de usuários, dados em tempo real via Supabase e exportação da escala em Excel — substituindo o controle manual. Construída como PWA instalável, com interface escura alinhada à identidade do destacamento.",
+    stack: ["React", "TypeScript", "Supabase", "PWA"],
+    papel: "Design + Front-end",
+    href: "https://github.com/MatheusProensa/escala-dtceasm",
   },
   {
     img: dashboard,
