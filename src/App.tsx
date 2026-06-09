@@ -111,7 +111,6 @@ const FRONT: FrontProject[] = [
   {
     img: printPortfolio,
     title: "Portfólio Proensa",
-    featured: true,
     desc: "Portfólio pessoal desenvolvido com React, TypeScript e direção visual própria, focado em identidade visual moderna e experiência premium.",
     longDesc:
       "Este portfólio. Desenvolvido em React + TypeScript com direção visual própria, do conceito ao código. Inclui fundo interativo de constelação, microinterações, entrada animada e uma identidade premium consistente do hero ao rodapé — pensado para parecer um estúdio de branding, não um template.",
