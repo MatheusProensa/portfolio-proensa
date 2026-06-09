@@ -561,7 +561,7 @@ function FrontSection({ onOpen }: { onOpen: (d: ModalData) => void }) {
         <div className="sec-head reveal">
           <h2>Projetos Front-end</h2>
         </div>
-        <div className="grid-2">
+        <div className="grid-3">
           {FRONT.map((p, i) => {
             const data: ModalData = {
               image: p.img,
