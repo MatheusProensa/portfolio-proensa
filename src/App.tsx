@@ -720,7 +720,7 @@ function Contato() {
               </span>
             </div>
           </div>
-          {/* TODO: trocar pelo seu endpoint Formspree para receber as mensagens de verdade */}
+          {/* TODO: integrar com Formspree */}
           <form
             className="contact-form"
             onSubmit={(e) => {
