@@ -114,7 +114,7 @@ const FRONT: FrontProject[] = [
     desc: "Portfólio pessoal desenvolvido com React, TypeScript e direção visual própria, focado em identidade visual moderna e experiência premium.",
     longDesc:
       "Este portfólio. Desenvolvido em React + TypeScript com direção visual própria, do conceito ao código. Inclui fundo interativo de constelação, microinterações, entrada animada e uma identidade premium consistente do hero ao rodapé — pensado para parecer um estúdio de branding, não um template.",
-    stack: ["React", "TypeScript", "Vite", "Framer Motion"],
+    stack: ["React", "TypeScript", "Vite", "Canvas API"],
     papel: "Design + Front-end",
     href: "https://github.com/MatheusProensa/portfolio-proensa",
   },
@@ -146,7 +146,7 @@ const FRONT: FrontProject[] = [
     desc: "Sistema visual para gerenciamento de chamados técnicos com foco em interface moderna, responsividade e experiência administrativa.",
     longDesc:
       "Interface administrativa para gestão de chamados de TI. Foco em clareza e leitura rápida: visão geral com indicadores, volume de chamados por período e uma organização visual que prioriza a tomada de decisão. Construído com atenção à responsividade e à hierarquia da informação.",
-    stack: ["React", "TypeScript", "CSS3"],
+    stack: ["React", "TypeScript", "Vite"],
     papel: "Front-end · UI",
     href: "https://github.com/MatheusProensa/dashboard-chamados-ti",
   },
@@ -156,7 +156,7 @@ const FRONT: FrontProject[] = [
     desc: "Projeto acadêmico desenvolvido com React utilizando rotas, componentes reutilizáveis e estrutura SPA moderna.",
     longDesc:
       "Projeto acadêmico construído como uma SPA em React. Explora roteamento com React Router, componentes reutilizáveis e uma arquitetura escalável — um exercício prático de estruturar uma aplicação real do zero, com boas práticas de organização.",
-    stack: ["React", "TypeScript", "React Router", "CSS3"],
+    stack: ["React", "TypeScript", "React Router", "Vite"],
     papel: "Front-end",
     href: "https://github.com/MatheusProensa/front-end-universidade",
   },
