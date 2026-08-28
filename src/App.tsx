@@ -23,14 +23,14 @@ import fotoPerfil from "./assets/fotoperfil.webp";
 import capaProensa from "./assets/capaproensa.webp";
 import capaPontoGrao from "./assets/capapontograo.webp";
 import capaPakoBella from "./assets/capapakoebella.webp";
-import printPortfolio from "./assets/capa-portfolio.png";
-import dashboard from "./assets/capa-dashboard.png";
-import escala from "./assets/capa-escala.png";
-import almoxarifado from "./assets/capa-almoxarifado.png";
-import universidade from "./assets/capa-universidade.png";
-import escolaCda from "./assets/capa-escolacda.png";
-import erpEscolaCda from "./assets/capa-erp-escolacda.png";
-import erpMeneghetti from "./assets/capa-erp-meneghetti.png";
+import printPortfolio from "./assets/capa-portfolio.webp";
+import dashboard from "./assets/capa-dashboard.webp";
+import escala from "./assets/capa-escala.webp";
+import almoxarifado from "./assets/capa-almoxarifado.webp";
+import universidade from "./assets/capa-universidade.webp";
+import escolaCda from "./assets/capa-escolacda.webp";
+import erpEscolaCda from "./assets/capa-erp-escolacda.webp";
+import erpMeneghetti from "./assets/capa-erp-meneghetti.webp";
 
 /* ===================== TIPOS / DADOS ===================== */
 
@@ -123,7 +123,6 @@ const FRONT: FrontProject[] = [
   {
     img: almoxarifado,
     title: "Almox Proensa",
-    wip: true,
     desc: "Sistema de almoxarifado e controle de estoque desenvolvido para o setor de Suprimento do DTCEA-SM, substituindo as planilhas no trabalho diário.",
     longDesc:
       "Sistema web real, em uso no Destacamento de Controle do Espaço Aéreo de Santa Maria (DTCEA-SM). Nasceu de uma dor concreta — o controle de materiais em planilhas confusas — e foca em usabilidade operacional: dashboard com indicadores, entradas e saídas com responsável e documento, ajuste de estoque, alertas de itens críticos, histórico completo de movimentações e relatórios com exportação em CSV e PDF oficial. PWA instalável, com dados em tempo real via Supabase.",
@@ -155,7 +154,6 @@ const FRONT: FrontProject[] = [
   {
     img: erpMeneghetti,
     title: "ERP Mecânica Meneghetti",
-    wip: true,
     desc: "Sistema de gestão para oficina mecânica, com ordens de serviço, financeiro e controle de dívidas em um painel único.",
     longDesc:
       "ERP desenvolvido para a Mecânica Meneghetti, cobrindo toda a operação da oficina: cadastro de clientes e mecânicos, ordens de serviço com anexos, calculadora de materiais, emissão de notas e despesas, controle de dívidas e devedores, pagamento de extras e um resumo diário automático por e-mail. Inclui notificações push, exportação em PDF e autenticação com NextAuth. Projeto em desenvolvimento ativo.",
@@ -166,7 +164,6 @@ const FRONT: FrontProject[] = [
   {
     img: dashboard,
     title: "Dashboard Chamados TI",
-    wip: true,
     desc: "Sistema visual para gerenciamento de chamados técnicos com foco em interface moderna, responsividade e experiência administrativa.",
     longDesc:
       "Interface administrativa para gestão de chamados de TI. Foco em clareza e leitura rápida: visão geral com indicadores, volume de chamados por período e uma organização visual que prioriza a tomada de decisão. Construído com atenção à responsividade e à hierarquia da informação.",
@@ -215,6 +212,9 @@ function CalmField() {
     const ctx = cv.getContext("2d");
     if (!ctx) return;
 
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
     let animationFrame = 0;
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -253,8 +253,8 @@ function CalmField() {
         if (mouse.active) {
           const dxM = p.x - mouse.x;
           const dyM = p.y - mouse.y;
-          const dM = Math.sqrt(dxM * dxM + dyM * dyM);
-          if (dM < 155) {
+          const dMSq = dxM * dxM + dyM * dyM;
+          if (dMSq < 155 * 155) {
             p.x += dxM * 0.003;
             p.y += dyM * 0.003;
           }
@@ -264,16 +264,19 @@ function CalmField() {
         ctx!.fillStyle = "rgba(56,189,248,0.46)";
         ctx!.fill();
       });
+      const LINK_DIST = 132;
+      const LINK_DIST_SQ = LINK_DIST * LINK_DIST;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 132) {
+          const distanceSq = dx * dx + dy * dy;
+          if (distanceSq < LINK_DIST_SQ) {
+            const distance = Math.sqrt(distanceSq);
             ctx!.beginPath();
             ctx!.moveTo(particles[i].x, particles[i].y);
             ctx!.lineTo(particles[j].x, particles[j].y);
-            ctx!.strokeStyle = `rgba(56,189,248,${0.13 * (1 - distance / 132)})`;
+            ctx!.strokeStyle = `rgba(56,189,248,${0.13 * (1 - distance / LINK_DIST)})`;
             ctx!.lineWidth = 1;
             ctx!.stroke();
           }
@@ -309,7 +312,7 @@ function useReveal() {
     );
     document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
     return () => obs.disconnect();
-  });
+  }, []);
 }
 
 /* ===================== NAV ===================== */
@@ -794,13 +797,19 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    let ticking = false;
     function onScroll() {
-      setScrolled(window.scrollY > 24);
-      const ids = ["home", ...LINKS.map((l) => l.id)];
-      const pos = window.scrollY + 160;
-      ids.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el && pos >= el.offsetTop && pos < el.offsetTop + el.offsetHeight) setActive(id);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 24);
+        const ids = ["home", ...LINKS.map((l) => l.id)];
+        const pos = window.scrollY + 160;
+        ids.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && pos >= el.offsetTop && pos < el.offsetTop + el.offsetHeight) setActive(id);
+        });
+        ticking = false;
       });
     }
     onScroll();
