@@ -29,6 +29,8 @@ import escala from "./assets/capa-escala.png";
 import almoxarifado from "./assets/capa-almoxarifado.png";
 import universidade from "./assets/capa-universidade.png";
 import escolaCda from "./assets/capa-escolacda.png";
+import erpEscolaCda from "./assets/capa-erp-escolacda.png";
+import erpMeneghetti from "./assets/capa-erp-meneghetti.png";
 
 /* ===================== TIPOS / DADOS ===================== */
 
@@ -138,6 +140,28 @@ const FRONT: FrontProject[] = [
     stack: ["React", "TypeScript", "Supabase", "PWA"],
     papel: "Design + Front-end",
     href: "https://github.com/MatheusProensa/escala-dtceasm",
+  },
+  {
+    img: erpEscolaCda,
+    title: "ERP Escola CDA",
+    wip: true,
+    desc: "Sistema de gestão escolar completo para a Escola CDA, unindo módulo acadêmico, financeiro e administrativo em um só painel.",
+    longDesc:
+      "ERP desenvolvido para a Escola CDA (Santa Maria/RS), reunindo em um único painel: matrículas e turmas, contratos e boletos, notas fiscais, ficha de alunos e responsáveis, ponto e documentos de funcionários, controle de estoque e cardápio, empréstimo de chaves, mural de avisos, chat interno, calendário de eventos e relatórios completos. Autenticação com permissões por usuário e dados em tempo real via Supabase. Projeto em desenvolvimento ativo.",
+    stack: ["Next.js", "TypeScript", "Prisma", "Supabase"],
+    papel: "Design + Front-end",
+    href: "https://github.com/MatheusProensa/ERP-EscolaCDA",
+  },
+  {
+    img: erpMeneghetti,
+    title: "ERP Mecânica Meneghetti",
+    wip: true,
+    desc: "Sistema de gestão para oficina mecânica, com ordens de serviço, financeiro e controle de dívidas em um painel único.",
+    longDesc:
+      "ERP desenvolvido para a Mecânica Meneghetti, cobrindo toda a operação da oficina: cadastro de clientes e mecânicos, ordens de serviço com anexos, calculadora de materiais, emissão de notas e despesas, controle de dívidas e devedores, pagamento de extras e um resumo diário automático por e-mail. Inclui notificações push, exportação em PDF e autenticação com NextAuth. Projeto em desenvolvimento ativo.",
+    stack: ["Next.js", "TypeScript", "Prisma", "Supabase"],
+    papel: "Design + Front-end",
+    href: "https://github.com/MatheusProensa/mecanica-meneghetti-erp",
   },
   {
     img: dashboard,
